@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     // res.setHeader('Access-Control-Allow-Origin', 'http://192.168.1.29:8000');
-    res.setHeader('Access-Control-Allow-Origin', 'http://nicholasteock.github.io/web/codelaborate');
+    res.setHeader('Access-Control-Allow-Origin', 'http://hosting.nicholasteock.github.io/web/codelaborate');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
