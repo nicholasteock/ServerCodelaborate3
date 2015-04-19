@@ -15,15 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Set port
 var port = process.env.PORT || 8080;
 
-// Access control allowed origin
-// var allowedOrigin = 'http://192.168.1.29:8000';
-// var allowedOrigin = 'http://nicholasteock.github.io';
-
 // Add headers
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    // res.setHeader('Access-Control-Allow-Origin', 'http://192.168.1.29:8000');
+    // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
     res.setHeader('Access-Control-Allow-Origin', 'http://hosting.nicholasteock.com');
 
     // Request methods you wish to allow
@@ -72,6 +68,7 @@ io.of('/run').on('connection', function (socket) {
 	});
 	socket.on('disconnect', function () {
 		if(dirName !== '') {
+			compiler.killProcess();
 			compiler.cleanup(dirName);
 		}
 		console.log('Disconnected');
